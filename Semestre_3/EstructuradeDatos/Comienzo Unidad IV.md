@@ -119,3 +119,144 @@ K = N
 MIENTRAS DER >= IZQ
 	DESDE I = DER HASTA IZQ 
 ```
+
+
+**Ordenación pares y nones**
+Solo es aplicable con arreglos con un numero par de elementos. 
+
+Arreglo: 12, 4, 25, 30, 6, 9, 13, 18
+Pares: (12, 4 ), (25, 30), (6, 9), (13, 18)
+
+Ordenado: (4, 12), (25, 30), (6, 9), (13, 18) 
+
+1º Non 
+4, (12, 25), (30, 6), (9, 13), 18
+Ordenado: 4, 12, 25, 6, 30, 9, 13, 18
+
+1ª Par 
+(4, 12), (25, 6), (30, 9), (13, 18)
+Ordenado: 4, 12, 6, 25, 9, 30, 13, 18
+
+2ª Non 
+4, (12, 6), (25, 9), (30, 13), 18
+Ordenado: 4, 6, 12, 9, 25, 13, 30, 18
+
+2ª Par:
+(4,6 ), (12, 9), (25, 13), (30, 18)
+Ordenado: 4, 6, 9, 12, 13, 25, 18, 30
+
+3ª Non
+4, (6, 9), (12, 13), (25, 18), 30
+Ordenado: 4, 6, 9, 12, 13, 18, 25, 30
+
+3ª Par 
+(4, 6,), (9, 12), (13, 18), (25, 30)       
+
+**Método Quick Sort**
+
+Arreglo: 12, 4, 25, 30, 6, 9, 13, 18
+
+QS(Limíte inferior: Posición 1, Limite superior: Posición 8)
+
+x = 12
+Se comienza a comparar los daots con el lado desde más a la derecha
+
+12 < 18 Bien
+12 < 13 Bien
+12 < 9 NO es cierto
+Cambian posiciones. 
+
+9, 4, 25, 30, 6, 12, 13, 18
+
+Como se hizo un cambio, se cambia el sentido de la comparación, como lo estabamos haceidno desde la derecha hasta la izquierda, ahora se hará izquierda a derecha, teniendo como paro al número que estamos comparando. 
+
+4 < 12 Bien 
+25 < 12 No es cierto
+
+Se cambian posiciones
+
+9, 4, 12, 30, 6, 25, 13, 18
+
+Se compara ahora de derecha a izquierda. 
+
+12 < 6 No es cierto
+Se cambian posiciones 
+
+9, 4, 6, 30, 12, 25, 13, 18
+
+Se compara de izquierda a derecha.
+
+30 < 12 NO es cierto
+Se cambian posiciones 
+
+9, 4, 6, 12, 30, 25, 13, 18 
+
+Como ya revise todo el arreglo, estamos seguros de que 12 ya esta en su lugar, resta acomodar los montones que no estan ordenados es decir, Quick Sort desde la posicion 1 hasta 3 que comprende a (9, 4, 6) y Quick sort desde 5 hasta 8 (30, 25, 12, 18)
+
+Qs(1, 3)
+x = 9 
+
+Arreglo: 9, 4, 6
+
+9 < 6 NO, se intercambia
+
+6, 4, 9
+Cambia a sentido de izquierda a derecha. 
+
+9 >  4 Si
+9 > 9 Como se esta comparando consigo mismo ya esta en su lugar ese elemento, se revisa el otro monton sobrante que serain los de la poscion 1 a 2 que son 6 ,4 
+
+Qs(1, 2) 
+x = 6 
+6 < 4 NO, se intercambia 
+
+4, 6 
+Cambia a sentido de izquierda a derecha
+
+6 < 6, Se trata del mismo numero entonces ya esta en su lugar y como ya no queda otro montón todo ese montón ya esta en su lugar, es decir 
+
+Arreglo listo: 4, 6, 9, 12. Arreglo o montón faltante: 30, 25, 13, 18
+
+Comenzamos a encargarnos del montón faltante:  30, 25, 13, 18
+QS(5, 8)
+x = 30 
+
+30 < 18 NO es cierto, se intercambia 
+
+18, 25, 13, 30
+Se cambia a sentido de izquierda a derecha. 
+
+25 < 30 Bien 
+13 < 30 Bien 
+30 < 30, Como ya se esta comparando el mismo con el mismo por lo tanto 30 ya esta en la posición correcta y ahora falta llamar al Quick sort a (5, 7), ya que es el montón faltante a ordenar. 
+
+
+QS(5, 7)
+Arreglo: 18, 25, 13
+x = 18
+
+18 < 13 No es cierto, intercambio
+
+13, 25, 18
+Se cambia a sentido de izquierda a derecha. 
+
+25 < 18 No es cierto, se intecambia
+
+12, 18, 25. 
+Se cambia a sentido de derecha a izquierda
+
+18 < 18 Como ya se esta comparando la misma posición consigo misma se sabe que el 18 ya esta en su lugar, faltarían los otros montones que son 12 un montón y 25 otro montón, entonces se llama a QS en cada uno de los montones, pero al ser montones de un solo elemento significaria que ya estan en su lugar. Para entenderlo mandaremos a llamar a QS con el montón de 12. 
+
+QS(7)
+Arreglo: 12
+
+x = 12 
+
+12 < 12 Ya se compara con la misma posición por lo que ya esta en su lugar. 
+
+
+Como se observa al llamar a QS con un solo elemento ya estaría en su lugar desde el primer momento, se puede llamar que es un caso baso y como el montón 12 y el montón 25 ya están en su lugar como analizamos ahora significa que todo el monton (5, 7) ya esta ordenado y por lo tanto también el (5,8) por lo tanto todo el arreglo ya esta ordenado. 
+
+### Método de ordenación por inserción
+**Método de inserción Directa (Método de la baraja)**
+
