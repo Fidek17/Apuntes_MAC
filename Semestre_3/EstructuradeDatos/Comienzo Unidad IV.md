@@ -152,6 +152,15 @@ Ordenado: 4, 6, 9, 12, 13, 18, 25, 30
 3ª Par 
 (4, 6,), (9, 12), (13, 18), (25, 30)       
 
+4ª Non 
+4, (6,9), (12,13), (18,25), 30
+Ordenado: ya esta ordenado.
+
+4ª Par 
+(4, 6,), (9, 12), (13, 18), (25, 30)   
+Ordenado: Ya esta ordenado. 
+
+
 **Método Quick Sort**
 
 Arreglo: 12, 4, 25, 30, 6, 9, 13, 18
@@ -260,3 +269,197 @@ Como se observa al llamar a QS con un solo elemento ya estaría en su lugar desd
 ### Método de ordenación por inserción
 **Método de inserción Directa (Método de la baraja)**
 
+
+**Método de inserción binaria**
+Arreglo: Arreglo: 12, 4, 25, 30, 6, 9, 13, 18
+
+Construir el árbol binario y ya estaria ordeando. Solo restaria imprimir el orden en INORDEN. 
+
+Inorden: 4, 6, 9, 12, 13, 18, 25, 30 
+
+**Método de Shell (Inserción con incrementos decrecientes)**
+
+Arreglo: 15 67 08 16 44 27 12 35 
+Son 8 elementos entonces mi incremento es 4 ya que 8/2 = 4 
+
+Comparo el elemento n con el n+4 y asi con todos. 
+
+1ª Iteración con 4 de incremento
+
+15 < 44 Cierto, no hay intercambio 
+67 < 27 NO es cierto, por lo tanto hay intercambio.
+08 < 12 Cierto, no hay intercambio 
+16 < 35 Cierto 
+
+Arreglo nuevo: 15 27 08 16 44 67 12 35 
+
+Como si hubo al menos un intercambio se continua el método con el mismo incremento es decir, comparar n con el n+4.
+
+2ª Iteración con 4 de incremento: 
+
+15 < 44 Cierto 
+27 < 67 Cierto 
+08 < 12 Cierto 
+16 < 35 Cierto
+
+Arreglo nuevo: 15 27 08 16 44 67 12 35 
+Como no hubo intercambios se pasa a tomar el nuevo incremento usando el anterior, se dividira el incremento anterior entre dos y este será el nuevo. Entonces el segundo incremento es 4/2 = 2. 
+
+1ª Iteracion con 2 de incremento 
+
+15 < 8 No es cierto, se intercambia
+Arreglo: 08 27 15 16 44 67 12 35 
+
+27 < 16 No es cierto, se intercambia
+Arreglo: 08 16 15 27 44 67 12 35 
+
+15 < 44 Cierto 
+
+27 < 67 Cierto 
+
+44 < 12 No es cierto, se intercambia 
+Arreglo: 08 16 15 27 12 67 44 35 
+
+67 < 35 No es cierto, se intercambia
+Arreglo: 08 16 15 27 12 35 44 67
+
+Ya no hay más datos, se va a la segunnda iteración. 
+
+2ª Iteración con 2 de incremento: 
+Arreglo: 08 16 15 27 12 35 44 67
+
+08 < 15 Cierto 
+16 < 27 Cierto 
+15 < 12 No es cierto, se intercambia. 
+Arreglo: 08 16 12 27 15 35 44 67
+
+27 < 35 Cierto 
+15 < 44 Cierto 
+35 < 67 Cierto 
+
+Ya no hay más datos pero como si hubo un intercambio vamos a hacer otra iteración. 
+
+3ª Iteración con 2 de incremento: 
+Arreglo: 08 16 12 27 15 35 44 67
+
+08 < 12 Cierto 
+16 < 27 Cierto 
+12 < 15 Cierto 
+27 < 35 Cierto
+15 < 44 Cierto 
+35 < 67 Cierto 
+
+Como no hubo intercambio usamos un nuevo incremento: 2/2 = 1 
+
+1ª Iteración con 1 de incremento: 
+Arreglo: 08 16 12 27 15 35 44 67
+
+08 < 16 Cierto 
+16 < 12 No es cierto, se intercambia. 
+Arreglo: 08 12 16 27 15 35 44 67
+
+27 < 15 No es cierto se intercambia. 
+Arreglo: 08 12 16 15 27 35 44 67 
+
+35 < 44 Cierto 
+44 < 67 Cierto 
+
+Ya no tengo datos a comparar y si hubo intercambio entonces voy a la segunda iteración. 
+
+2ª Iteración con 1 de incremento: 
+Arreglo: 08 12 16 15 27 35 44 67 
+
+08 < 12 Cierto 
+12 < 16 Cierto 
+16 < 15 NO es cierto, se intercambia. 
+Arreglo: 08 12 15 16 27 35 44 67 
+
+27 < 35 Cierto 
+35 < 44 Cierto 
+44 < 67 Cierto 
+
+Ya no tengo datos que comparar y si hubo intercambio entonces vamos a la tercera iteración
+
+3ª Iteración con 1 de incremento: 
+Arreglo: 08 12 15 16 27 35 44 67 
+
+08 < 12 Cierto 
+12 < 15 Cierto 
+15 < 16 Cierto 
+16 < 27 Cierto
+27 < 35 Cierto
+35 < 44 Cierto
+44 < 67 Cierto 
+
+Ya no tengo datos a comparar y no hubo intercambios, ya termine y además fue el final ya que el incremento era de 1, el arreglo quedo *Ordenado*.
+
+### Métodos de ordenamiento por distribución 
+**Método de Radix Sort (Ordenación por base)**
+**Ejemplo:**
+Arreglo: 15 67 08 16 44 27 12 35 
+
+Unidades{0}: 
+Unidades{1}: 
+Unidades{2}: 12
+Unidades{3}: 
+Unidades{4}: 44
+Unidades{5}: 15 35
+Unidades{6}: 16 
+Unidades{7}: 67 27  
+Unidades{8}: 08 
+Unidades{9}: 
+
+Se irá generando el nuevo arreglo poniendo los números dentro de los arreglos de unidades de menor a menor, es decir, se revisa el de 0 unidades y se pone, se revisa el de 1 unidad, se revisara el de 2 unidades y se pondrá en el arreglo nuevo y así hasta llegar al  de 9 unidades. 
+
+Nuevo Arreglo: 12, 44, 15, 35, 16 , 67, 27, 08
+
+Decenas{0}: 08
+Decenas{1}: 12 15 16  
+Decenas{2}: 27
+Decenas{3}: 35 
+Decenas{4}: 44 
+Decenas{5}:  
+Decenas{6}: 67
+Decenas{7}: 
+Decenas{8}:
+Decenas{9}:
+
+Nuevo Arreglo: 08, 12, 15, 16, 27, 35, 44, 67. 
+
+Ya quedaría ya que no hay centenas en los elementos para ordenar o millares o millones, etc. por lo tanto ya esta ordenado el arreglo. 
+
+### Métodos de ordenamiento por intercalación 
+**Método de Merge Sort**
+**Ejemplo**
+Arreglo A: 8 10 15 21 25 
+Arreglo B: 1 5 9 20 30 40 
+
+8 vs 1: Al 1 ser menor ser va al Arreglo ordenado
+Arreglo ordenado: 1 
+
+8 vs 5: 5 menor, se va al arreglo ordenado. 
+Arreglo ordenado: 1 5 
+
+8 vs 9: 8 es menor, se va al arreglo ordenado. 
+Arreglo ordenado: 1 5 8
+
+10 vs 9: 9 es menor. 
+Arreglo ordenado: 1 5 8 9  
+
+10 vs 20: 10 es menor.
+Arreglo ordenado: 1 5 8 9 10 
+
+15 vs 20: 15 es menor 
+Arreglo ordenado: 1 5 8 9 10 15 
+
+21 vs 20: 20 es menor
+Arreglo ordenado: 1 5 8 9 10 15 20
+
+21 vs 30: 21 es menor.
+Arreglo ordenado: 1 5 8 9 10 15 20 21 
+
+25 vs 30: 25 es menor. 
+Arreglo ordenado: 1 5 8 9 10 15 20 21 25 
+
+Como ya se acabaron los elementos de un arreglo solo bastaría meter los elementos restantes del arreglo sin terminar en el ordenado y ya estaria ordenado el conjunto de arreglos. 
+Arreglo ordenado: 1 5 8 9 10 15 20 21 25 30 40 
